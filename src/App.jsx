@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
-import { Hero } from './components/Hero'
-import { CategoryNav } from './components/category-nav'
+// import { CategoryNav } from './components/category-nav'
 import Features from './components/Features'
 import HowItWorks from './components/HowItWorks'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
+import Hero from './components/Hero'
 
 function App() {
   return (
@@ -15,9 +15,9 @@ function App() {
         <Routes>
           <Route path="/" element={
             <main>
-              <Hero />
+              <Hero/>
               <div className="max-w-9xl mx-auto py-6 sm:px-6 lg:px-8">
-                <CategoryNav/>
+                {/* <CategoryNav/> */}
                 <Features/>
                 <HowItWorks/>
                 <Testimonials/>

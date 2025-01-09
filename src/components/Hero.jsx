@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { Search, MapPin, Calendar, Clock, Users } from 'lucide-react';
-import landscapeImage from '../assets/images.jpg';
+import React, { useState, useEffect } from "react";
+import { Search, MapPin, Calendar, Clock, Users, Shield, Navigation, AlertTriangle } from "lucide-react";
 
-export function Hero() {
-  const [typedText, setTypedText] = useState('');
-  const fullText = "  SafeRoute recommends the safest travel routes using historical crime data, user preferences, and geospatial analysis. It empowers users to make informed travel decisions in high-risk areas.";
+function Hero() {
+  const [typedText, setTypedText] = useState("");
+  const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const fullText = "  Navigate with confidence through any urban environment with real-time safety insights and intelligent route recommendations.";
 
   useEffect(() => {
     let i = 0;
@@ -15,87 +15,112 @@ export function Hero() {
       } else {
         clearInterval(typingEffect);
       }
-    }, 20);
+    }, 30);
 
     return () => clearInterval(typingEffect);
   }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center">
-      <div className="absolute inset-0">
-        <img
-          className="w-full h-full object-cover blur-md"
-          src={landscapeImage}
-          alt="Beautiful landscape"
-        />
-        <div className="absolute inset-0 bg-gray-500 mix-blend-multiply" aria-hidden="true" />
-      </div>
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div className="max-w-2xl">
-          <h1 className="font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl mb-2 font-serif">
-            <span className="bg-gradient-to-r from-pink-400 to-pink-600 text-transparent bg-clip-text">
-              SafeRoute
-            </span>
-            <br />
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-500 text-transparent bg-clip-text font-serif text-3xl sm:text-4xl lg:text-5xl">
-              Guiding You Safely, Every Step of the Way
-            </span>
-          </h1>
-          <p className="mt-6 max-w-xl text-xl text-gray-300 font-sans">
-            {typedText}
-          </p>
-        </div>
-        {/* Rest of the form component remains unchanged */}
-        <div className="bg-white shadow-xl rounded-lg p-6 w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-4">Find Safe Routes</h2>
-          <div className="space-y-4">
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Start Location"
-              />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <div className="container mx-auto px-8 md:px-12 lg:px-16 py-12 lg:py-24">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
+          {/* Left Column - Hero Content */}
+          <div className="space-y-8">
+            <div className="inline-flex items-center px-4 py-2 bg-blue-50 rounded-full text-blue-600 font-medium text-sm">
+              <Shield className="w-4 h-4 mr-2" />
+              Your Safety Is Our Priority
             </div>
-            <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Destination"
-              />
-            </div>
-            <div className="flex space-x-4">
-              <div className="relative flex-1">
-                <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Date"
-                />
+            
+            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              SafeRoutes for
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                {" "}Safer Journeys
+              </span>
+            </h1>
+            
+            <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+              {typedText}
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <div className="flex items-center text-gray-600">
+                <Navigation className="w-5 h-5 mr-2 text-blue-600" />
+                Real-time Navigation
               </div>
-              <div className="relative flex-1">
-                <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-                <input
-                  type="text"
-                  className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  placeholder="Time"
-                />
+              <div className="flex items-center text-gray-600">
+                <AlertTriangle className="w-5 h-5 mr-2 text-blue-600" />
+                Risk Assessment
+              </div>
+              <div className="flex items-center text-gray-600">
+                <Shield className="w-5 h-5 mr-2 text-blue-600" />
+                24/7 Safety Alerts
               </div>
             </div>
-            <div className="relative">
-              <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
-              <input
-                type="text"
-                className="w-full pl-10 pr-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                placeholder="Number of People"
-              />
+          </div>
+
+          {/* Right Column - Search Form */}
+          <div className={`bg-white rounded-2xl shadow-xl p-8 transition-all duration-300 max-w-sm mx-auto lg:ml-auto ${isSearchFocused ? 'scale-105' : ''}`}>
+            <h2 className="text-xl font-bold mb-4 text-gray-800">Plan Your Safe Route</h2>
+            
+            <div className="space-y-4">
+              <div className="relative">
+                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                <input
+                  type="text"
+                  className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                  placeholder="Starting Point"
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setIsSearchFocused(false)}
+                />
+              </div>
+
+              <div className="relative">
+                <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                <input
+                  type="text"
+                  className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                  placeholder="Destination"
+                  onFocus={() => setIsSearchFocused(true)}
+                  onBlur={() => setIsSearchFocused(false)}
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="relative">
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                  <input
+                    type="date"
+                    className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                  />
+                </div>
+
+                <div className="relative">
+                  <Clock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                  <input
+                    type="time"
+                    className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all text-sm"
+                  />
+                </div>
+              </div>
+
+              <div className="relative">
+                <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-500 w-4 h-4" />
+                <select
+                  className="w-full pl-10 pr-3 py-2 rounded-lg border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all appearance-none bg-white text-sm"
+                >
+                  <option value="">Number of People</option>
+                  <option value="1">1 Person</option>
+                  <option value="2">2 People</option>
+                  <option value="3">3 People</option>
+                  <option value="4">4+ People</option>
+                </select>
+              </div>
+
+              <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-4 rounded-lg transition-all duration-300 transform hover:scale-[1.02] flex items-center justify-center text-sm">
+                <Search className="mr-2 h-4 w-4" />
+                Find Safest Route
+              </button>
             </div>
-            <button
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 ease-in-out flex items-center justify-center"
-            >
-              <Search className="mr-2 h-4 w-4" /> Find Safe Route
-            </button>
           </div>
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function HowItWorks() {
   return (
     <div id="how-it-works" className="bg-white py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-600">How It Works</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">How It Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="bg-gray-50 rounded-lg p-8 text-center transition-transform duration-300 hover:-translate-y-1 animate-fade-in">

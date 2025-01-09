@@ -137,12 +137,13 @@ export default function Features() {
   return (
     <div id="features" className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-600">
-          Comprehensive Safety Features
-        </h2>
+      <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+  Comprehensive Safety Features
+</h2>
+
         {featureCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-16">
-            <div className="flex items-center mb-8 p-4 bg-white rounded-lg shadow-sm">
+            <div className="flex items-center mb-8 p-4 bg-white rounded-lg shadow-lg">
               <span className="text-3xl mr-4">{category.icon}</span>
               <h3 className="text-2xl font-semibold text-gray-800 m-0">
                 {category.title}
@@ -152,7 +153,7 @@ export default function Features() {
               {category.features.map((feature, featureIndex) => (
                 <div 
                   key={featureIndex} 
-                  className="bg-white rounded-lg p-6 text-left transition-all duration-300 ease-in-out shadow-sm hover:shadow-blue-400 hover:-translate-y-1 animate-fade-in"
+                  className="bg-white rounded-lg p-6 text-left transition-all duration-300 ease-in-out shadow-md hover:shadow-blue-400 hover:-translate-y-1 animate-fade-in"
                 >
                   <div className="text-3xl mb-4">{feature.icon}</div>
                   <h4 className="text-lg font-semibold mb-3 text-gray-800">

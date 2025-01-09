@@ -1,17 +1,17 @@
 import React from 'react';
 import sarahImg from '../assets/harshad.jpg'; // Example paths; adjust based on your project structure
-import michaelImg from '../assets/harshad.jpg';
-import emilyImg from '../assets/harshad.jpg';
+import michaelImg from '../assets/testimonial1.png';
+import emilyImg from '../assets/testimonial.jpg';
 
 const testimonials = [
   {
-    name: 'Sarah Johnson',
+    name: 'Harshad Karale',
     role: 'Frequent Traveler',
     quote: 'SafeRoute has completely changed how I explore new cities. I feel so much more confident knowing I\'m taking the safest routes.',
     image: sarahImg,
   },
   {
-    name: 'Michael Chen',
+    name: 'Aviraj Kale',
     role: 'Business Executive',
     quote: 'As someone who often travels for work, SafeRoute has become an essential tool in my travel kit. It\'s like having a local guide wherever I go.',
     image: michaelImg,
@@ -28,7 +28,7 @@ export default function Testimonials() {
   return (
     <div id="testimonials" className="bg-gray-50 py-16">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-center mb-16 text-blue-600">What Our Users Say</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">What Our Users Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div key={index} className="bg-white rounded-lg p-8 text-center transition-transform duration-300 hover:-translate-y-1 animate-fade-in">
@@ -36,7 +36,7 @@ export default function Testimonials() {
                 <img
                   src={testimonial.image}
                   alt={`${testimonial.name}'s profile`}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-20 h-20 rounded-full object-cover"
                 />
               </div>
               <p className="text-gray-800 italic mb-4">"{testimonial.quote}"</p>

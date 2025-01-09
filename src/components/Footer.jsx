@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 pt-6">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="flex-1 min-w-[200px] mb-8 ">
-            <h3 className="bg-gradient-to-r from-pink-400 to-pink-600 text-transparent bg-clip-text">
+            <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
               SafeRoute
             </h3>
             <p className="text-gray-400">Empowering safer travel through technology.</p>
